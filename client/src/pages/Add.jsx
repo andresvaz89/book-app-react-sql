@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../styles.css';
+import '../App.css';
 
 const Add = () => {
   const [book, setBook] = useState({
