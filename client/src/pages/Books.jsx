@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL_SERVER;
 
 const Books = () => {
   const [books, setBooks] = useState([]);
@@ -10,7 +11,7 @@ const Books = () => {
   useEffect(() => {
     const fetchAllBooks = async () => {
       try {
-        const res = await axios.get('http://localhost:8800/books');
+        const res = await axios.get(`${BASE_URL}/books`);
         setBooks(res.data);
       } catch (err) {
         console.log(err);
@@ -21,7 +22,7 @@ const Books = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8800/books/${id}`);
+      await axios.delete(`${BASE_URL}/books/${id}`);
       window.location.reload();
     } catch (err) {
       console.log(err);

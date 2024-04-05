@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../App.css';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL_SERVER;
 
 const Add = () => {
   const [book, setBook] = useState({
@@ -22,7 +23,8 @@ const Add = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8800/books', book);
+      await axios.post(`${BASE_URL}/books`, book);
+      console.log(BASE_URL);
       navigate('/');
       console.log(book);
     } catch (err) {

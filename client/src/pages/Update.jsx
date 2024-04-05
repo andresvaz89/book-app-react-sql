@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL_SERVER;
 
 const Update = () => {
   const [book, setBook] = useState({
@@ -24,7 +25,7 @@ const Update = () => {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:8800/books/${bookId}`, book);
+      await axios.put(`${BASE_URL}/books/${bookId}`, book);
       navigate('/');
     } catch (err) {
       console.log(err);

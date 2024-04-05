@@ -58,7 +58,7 @@ app.put('/books/:id', (req, res) => {
 
   const values = [
     req.body.title,
-    req.body.desc,
+    req.body.description,
     req.body.price,
     req.body.cover
   ];
